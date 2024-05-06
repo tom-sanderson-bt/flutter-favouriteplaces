@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Great Places',
         theme: theme,
-        home: PlacesScreen(),
+        home: const PlacesScreen(),
       ),
     );
   }

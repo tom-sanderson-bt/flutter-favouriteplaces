@@ -1,5 +1,5 @@
 import 'package:favourite_places/models/place.dart';
-import 'package:favourite_places/providers/favourite_places.dart';
+import 'package:favourite_places/providers/user_places.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,10 +13,14 @@ class AddPlacesScreen extends ConsumerStatefulWidget {
 class _AddPlacesScreenState extends ConsumerState<AddPlacesScreen> {
   final TextEditingController _titleController = TextEditingController();
 
-  _addFavouritePlace() {
-    ref.read(favouritePlacesProvider.notifier).addFavouritePlace(
+  _savePlace() {
+    var enteredTitle = _titleController.text;
+    if (enteredTitle.isEmpty) {
+      return;
+    }
+    ref.read(userPlacesProvider.notifier).addPlace(
           Place(
-            name: _titleController.value.text,
+            title: enteredTitle,
           ),
         );
     Navigator.of(context).pop();
@@ -26,9 +30,9 @@ class _AddPlacesScreenState extends ConsumerState<AddPlacesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add favourite place"),
+        title: const Text("Add new place"),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -42,8 +46,11 @@ class _AddPlacesScreenState extends ConsumerState<AddPlacesScreen> {
                   .bodyMedium!
                   .copyWith(color: Theme.of(context).colorScheme.onBackground),
             ),
+            const SizedBox(
+              height: 16,
+            ),
             ElevatedButton(
-              onPressed: _addFavouritePlace,
+              onPressed: _savePlace,
               child: const Text("Save"),
             ),
           ],
