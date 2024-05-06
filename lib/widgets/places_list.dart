@@ -19,6 +19,7 @@ class PlacesList extends ConsumerWidget {
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, i) => ListTile(
+        contentPadding: const EdgeInsets.all(6),
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -28,6 +29,10 @@ class PlacesList extends ConsumerWidget {
             ),
           );
         },
+        leading: CircleAvatar(
+          radius: 26,
+          backgroundImage: FileImage(items[i].image),
+        ),
         title: Text(items[i].title),
       ),
     );

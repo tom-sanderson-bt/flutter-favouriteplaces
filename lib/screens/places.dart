@@ -20,7 +20,10 @@ class PlacesScreen extends StatelessWidget {
               icon: const Icon(Icons.add))
         ],
       ),
-      body: const PlacesList(),
+      body: const Padding(
+        padding: EdgeInsets.all(8),
+        child: PlacesList(),
+      ),
     );
   }
 }
