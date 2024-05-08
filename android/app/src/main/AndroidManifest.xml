@@ -3,6 +3,9 @@
         android:label="favourite_places"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="ADD_ME"/>
+               
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,4 +44,8 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

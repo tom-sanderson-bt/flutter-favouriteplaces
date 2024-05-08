@@ -58,9 +58,10 @@ class _ImageSelectorState extends State<ImageSelector> {
                 color: Theme.of(context).colorScheme.primary.withAlpha(150),
               ),
             ),
-            child: TextButton(
+            child: TextButton.icon(
+              icon: const Icon(Icons.camera),
               onPressed: _pickImage,
-              child: const Text("Pick Image"),
+              label: const Text("Pick Image"),
             ),
           );
   }

@@ -8,6 +8,8 @@
 	<string>Take a picture of place</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Take a picture of place</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allows detection of current location when adding a place</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
